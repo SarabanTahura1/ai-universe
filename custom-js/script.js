@@ -13,11 +13,6 @@ let isSorted = false;
 const displayApps = apps => {
   console.log(apps);
   const appContainer = document.getElementById('app-container');
-
-
-
- 
-
   Apps = apps.slice(0, 6);
   Apps.forEach(app => {
     const appDiv = document.createElement('div');
@@ -43,7 +38,7 @@ const displayApps = apps => {
       </div>
       <div>
       <button onclick="displayAppDetails()" id ="modal-btn" type="button" class="btn btn-outline-success btn-floating ms-5 " data-mdb-ripple-color="dark" data-bs-toggle="modal" data-bs-target="#appDetailModal">
-            →
+            Details
           </button>
        
 
@@ -72,9 +67,7 @@ const displayApps = apps => {
       <div class="card-body">
      <h2>Features</h2>
         
-        <ol>
-          <li>${remainingCards[i].features}</li>
-       </ol>
+        
      
         <hr>
         <div class ="d-flex" >
@@ -84,7 +77,7 @@ const displayApps = apps => {
         </div>
         <div>
         <button onclick="displayAppDetails()" id ="modal-btn" type="button" class="btn btn-outline-success btn-floating ms-5 " data-mdb-ripple-color="dark" data-bs-toggle="modal" data-bs-target="#appDetailModal">
-              →
+        Details
             </button>
          
   
@@ -132,10 +125,8 @@ const displayApps = apps => {
         </div>
         <div>
         <button onclick="displayAppDetails()" id ="modal-btn" type="button" class="btn btn-outline-success btn-floating ms-5 " data-mdb-ripple-color="dark" data-bs-toggle="modal" data-bs-target="#appDetailModal">
-              →
+              Details
             </button>
-         
-  
         </div>
       </div>
     </div>
