@@ -16,9 +16,7 @@ const displayApps = apps => {
 
 
 
-  // if(isSorted) {
-  //   apps.sort((a, b) => new Date(a.published_in) - new Date(b.published_in));
-  // }
+ 
 
   Apps = apps.slice(0, 6);
   Apps.forEach(app => {
@@ -30,12 +28,12 @@ const displayApps = apps => {
     <div class="card-body">
    <h2>Features</h2>
       
-      <ol>
-        <li>Natural language processing</li>
-        <li>Contextual understanding</li>
-        <li>Text generation</li>
+   <ol>
+   <li>${app.features[0]}</li>
+   <li>${app.features[1]}</li>
+   <li>${app.features[2]}</li>
 
-     </ol>
+</ol>
    
       <hr>
       <div class ="d-flex" >
@@ -121,11 +119,10 @@ const displayApps = apps => {
      <h2>Features</h2>
         
         <ol>
-          <li>Natural language processing</li>
-          <li>Contextual understanding</li>
-          <li>Text generation</li>
-  
-       </ol>
+        <li>${app.features[0]}</li>
+        <li>${app.features[1]}</li>
+        <li>${app.features[2]}</li>
+        </ol>
      
         <hr>
         <div class ="d-flex" >
