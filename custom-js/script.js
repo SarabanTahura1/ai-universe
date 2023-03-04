@@ -20,7 +20,10 @@ const displayApps = apps => {
    <h2>Features</h2>
       
       <ol>
-        <li>${app.features}</li>
+        <li>Natural language processing</li>
+        <li>Contextual understanding</li>
+        <li>Text generation</li>
+
      </ol>
    
       <hr>
@@ -40,12 +43,8 @@ const displayApps = apps => {
   </div>
   `;
     appContainer.appendChild(appDiv);
+    
 
-    // document.getElementById('see-more-btn').addEventListener('click', function () {
-    //   //showing spinner
-    //   //toggleSpinner(true);
-    //   delete json(slice);
-    // })
   })
 
 
@@ -75,7 +74,7 @@ const displayApps = apps => {
         <p class="card-text">${remainingCards[i].published_in}</p>
         </div>
         <div>
-        <button id ="modal-btn" type="button" class="btn btn-outline-success btn-floating ms-5 " data-mdb-ripple-color="dark" data-bs-toggle="modal" data-bs-target="#appDetailModal">
+        <button onclick="addModal()" id ="modal-btn" type="button" class="btn btn-outline-success btn-floating ms-5 " data-mdb-ripple-color="dark" data-bs-toggle="modal" data-bs-target="#appDetailModal">
               →
             </button>
          
@@ -89,17 +88,49 @@ const displayApps = apps => {
       spinner.style.display = "none";
     }, 2000);
   });
+  const displayAppDetails = app => {
+      
+    const modalTitle = document.getElementById('appDetailModalLabel');
+    modalTitle.innerText = remainingCards[i].name;
+  }
 
 }
-//display app
 
 
 
-const displayAppDetails = app => {
 
-  const modalTitle = document.getElementById('appDetailModalLabel');
-  modalTitle.innerText = app.name;
-}
+
+
+//modal task 
+/**
+function addModal(){
+  const modalBtn = document.getElementById('modal-btn');
+  const modal =  document.createElement('div');
+  modal.classList.add('modal fade');
+  modal.innerHTML = `
+  <div class="modal fade" id="appDetailModal" tabindex="-1" aria-labelledby="appDetailModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="appDetailModalLabel">Modal title</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    ...
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+ 
+  </div>
+</div>
+</div>
+</div>
+  `;
+  addModal();
+}; */
+
+//Modal
+
 
 
 
