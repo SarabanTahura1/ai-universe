@@ -67,7 +67,12 @@ const displayApps = apps => {
       <div class="card-body">
      <h2>Features</h2>
         
-        
+        <ol>
+          <li>${remainingCards[i].features[1]}</li>
+          <li>${remainingCards[i].features[2]}</li>
+          <li>${remainingCards[i].features[3]}</li>
+
+       </ol>
      
         <hr>
         <div class ="d-flex" >
