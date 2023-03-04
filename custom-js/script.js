@@ -6,9 +6,20 @@ const loadApps = async () => {
 }
 
 const showMoreButton = document.getElementById("see-more-btn");
+const sortByDateButton = document.querySelector('#sort-by-date');
+let isSorted = false;
+
+
 const displayApps = apps => {
-  // console.log(apps);
+  console.log(apps);
   const appContainer = document.getElementById('app-container');
+
+
+
+  // if(isSorted) {
+  //   apps.sort((a, b) => new Date(a.published_in) - new Date(b.published_in));
+  // }
+
   Apps = apps.slice(0, 6);
   Apps.forEach(app => {
     const appDiv = document.createElement('div');
@@ -43,7 +54,7 @@ const displayApps = apps => {
   </div>
   `;
     appContainer.appendChild(appDiv);
-    
+
 
   })
 
@@ -88,12 +99,58 @@ const displayApps = apps => {
       spinner.style.display = "none";
     }, 2000);
   });
+
+  sortByDateButton.addEventListener('click', () => {
+
+    function compareDates(a, b) {
+      const dateA = new Date(a.published_in);
+      const dateB = new Date(b.published_in);
+      return dateA - dateB;
+    }
+    apps.sort(compareDates);
+    appContainer.innerHTML = '';
+    console.log(apps);
+    Apps = apps.slice(0, 6);
+    Apps.forEach(app => {
+      const appDiv = document.createElement('div');
+      appDiv.classList.add('col');
+      appDiv.innerHTML = `
+      <div class="card h-100">
+      <img src="${app.image}" class="card-img-top" alt="...">
+      <div class="card-body">
+     <h2>Features</h2>
+        
+        <ol>
+          <li>Natural language processing</li>
+          <li>Contextual understanding</li>
+          <li>Text generation</li>
   
+       </ol>
+     
+        <hr>
+        <div class ="d-flex" >
+        <div class ="me-5" >
+        <h5 class="card-title">${app.name}</h5>
+        <p class="card-text">${app.published_in}</p>
+        </div>
+        <div>
+        <button onclick="displayAppDetails()" id ="modal-btn" type="button" class="btn btn-outline-success btn-floating ms-5 " data-mdb-ripple-color="dark" data-bs-toggle="modal" data-bs-target="#appDetailModal">
+              →
+            </button>
+         
+  
+        </div>
+      </div>
+    </div>
+    `;
+      appContainer.appendChild(appDiv);
+
+
+    })
+  });
+
 
 }
-
-
-
 
 
 loadApps();
